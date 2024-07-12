@@ -1,0 +1,100 @@
+.rolodex {
+  height: 300px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  /* border: 1px solid #ccc;
+  border-radius: 5px; */
+  perspective: 1000px;
+  position: relative;
+}
+
+.rolodex::before,
+.rolodex::after {
+  content: '';
+  display: block;
+  height: calc(50% - 20px); /* Adjust based on item height */
+}
+
+.rolodex-item {
+  padding: 10px;
+  /* border-bottom: 1px solid #eee; */
+  transition: all 0.3s ease;
+  transform-origin: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.rolodex-item:last-child {
+  border-bottom: none;
+}
+
+.rolodex-item.focused {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #007bff;
+  transform: scale(1.05) translateZ(20px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.rolodex-item:not(.focused) {
+  opacity: 0.7;
+}
+
+/* New gradient overlay styles */
+.rolodex::before,
+.rolodex::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100px;
+  pointer-events: none;
+}
+
+/* .rolodex::before {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.rolodex::after {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+} */
+
+.rolodex {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.rolodex::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari) */
+}
+
+.rolodex-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* Adjust as needed */
+}
+
+.rolodex {
+  position: absolute;
+  top: 0;
+  right: -17px; /* Hides the scrollbar */
+  bottom: -17px;
+  left: 0;
+  overflow-y: scroll;
+  padding-right: 17px; /* Compensates for hidden scrollbar */
+}
+
+.left-side .rolodex-item {
+  text-align: right;
+}
+
+.right-side .rolodex-item {
+  text-align: left;
+}
+
+.rolodex-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
