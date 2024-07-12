@@ -1,12 +1,18 @@
 .selected-pokemon {
   display: flex;
   justify-content: center;
-  align-items: end;
-  height: 100%;
+  align-items: flex-end;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25vh;
+  max-height: 200px;
+  z-index: 10;
 }
 
 .pokemon-display {
-  text-align: center;
+  /* text-align: center; */
   background: transparent;
   /* padding: 20px; */
   /* border-radius: 10px;
